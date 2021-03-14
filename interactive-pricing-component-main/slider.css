@@ -1,0 +1,156 @@
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 25px;
+    background: #eff1fd;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    border: 0;
+    background: #10d8c4 url("images/icon-slider.svg") no-repeat;
+    background-position-x: 9px;
+    background-position-y: 13px;
+    box-shadow: 1px 10px 25px 4px #80fff3;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 25px;
+    background: #10d8c4 url("images/icon-slider.svg") no-repeat;
+    background-position-x: 9px;
+    background-position-y: 13px;
+    box-shadow: 1px 10px 25px 4px #80fff3;
+    cursor: pointer;
+}
+
+.slider::-moz-range-progress {
+    height: 8px;
+    border-radius: 25px;
+    background-color: #a4f3eb;
+}
+
+.slider::-ms-fill-lower {
+    height: 8px;
+    border-radius: 25px;
+    background-color: #a4f3eb !important;
+}
+
+.slider-container-1::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 100%, #a4f3eb 0%)
+}
+
+.slider-container-2::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 95%, #a4f3eb 5%)
+}
+
+.slider-container-3::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 90%, #a4f3eb 10%)
+}
+
+.slider-container-4::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 85%, #a4f3eb 15%)
+}
+
+.slider-container-5::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 80%, #a4f3eb 20%)
+}
+
+.slider-container-6::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 75%, #a4f3eb 25%)
+}
+
+.slider-container-7::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 70%, #a4f3eb 30%)
+}
+
+.slider-container-8::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 65%, #a4f3eb 35%)
+}
+
+.slider-container-9::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 60%, #a4f3eb 40%)
+}
+
+.slider-container-10::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to left, #ecf0fb 55%, #a4f3eb 45%)
+}
+
+.slider-container-11::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 50%, #ecf0fb 50%)
+}
+
+.slider-container-12::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 55%, #ecf0fb 45%)
+}
+
+.slider-container-13::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 60%, #ecf0fb 40%)
+}
+
+.slider-container-14::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 65%, #ecf0fb 35%)
+}
+
+.slider-container-15::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 70%, #ecf0fb 30%)
+}
+
+.slider-container-16::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 75%, #ecf0fb 25%)
+}
+
+.slider-container-17::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 80%, #ecf0fb 20%)
+}
+
+.slider-container-18::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 85%, #ecf0fb 15%)
+}
+
+.slider-container-19::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 90%, #ecf0fb 10%)
+}
+
+.slider-container-20::-webkit-slider-container {
+    border-radius: 25px;
+    background: linear-gradient(to right, #a4f3eb 100%, #ecf0fb 0%)
+}

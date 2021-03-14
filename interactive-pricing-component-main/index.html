@@ -1,39 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive pricing component</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+          rel="stylesheet"/>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="switch.css">
+
+    <title>Frontend Mentor | Interactive pricing component</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Manrope, sans-serif;
+            background-color: #f9faff;
+        }
+    </style>
 </head>
 <body>
+<main class="wrapper">
+    <img class="wrapper__background" src="images/bg-pattern.svg" alt="background"/>
+    <div class="wrapper__content">
+        <div class="content__header">
+            <img class="header__background" src="images/pattern-circles.svg" alt="circles"/>
+            <h1 class="header__title">Simple, traffic-based pricing</h1>
+            <h5 class="header__subtitle"> Sign-up for our 30-day trial. No credit card required.</h5>
+        </div>
 
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+        <div class="content__card">
+            <div class="card">
+                <div class="card__content">
+                    <div class="content__traffic">
+                        <div class="row row--space-between">
+                            <label class="traffic__view">
+                                <span id="view"></span>K PAGEVIEWS
+                            </label>
+                            <span class="traffic__price">
+                                <b class="price__value">$<span id="price">16.00</span></b>/ month
+                            </span>
+                        </div>
 
-  Pageviews
-  $ /month
+                        <div class="row row--range-full-width">
+                            <input class="slider" type="range" id="priceRange" min="1" value="10" max="20"/>
+                            <script>
+                                const slider = document.getElementById('priceRange');
+                                const price = document.getElementById('price');
+                                const view = document.getElementById('view');
 
-  Monthly Billing
-  Yearly Billing 25% discount
+                                function putValue(value) {
+                                    const slideClass = 'slider-container-';
+                                    for (let i = 1; i <= 20; i++) {
+                                        slider.classList.remove(slideClass + i)
+                                    }
 
-  Unlimited websites
-  100% data ownership
-  Email reports
+                                    slider.classList.add(slideClass + value)
+                                    view.innerHTML = `${value * 10}`;
+                                    price.innerHTML = `${parseFloat(value * 1.6).toFixed(2)}`;
+                                }
 
-  Start my trial
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+                                putValue(Number.parseInt(slider.value));
+                                slider.oninput = function () {
+                                    putValue(Number.parseInt(this.value));
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <div class="row row--align-end ">
+                        <label class="content__period">Monthly Billing</label>
+                        <div class="switch">
+                            <input type="checkbox" id="switch" class="checkbox"/>
+                            <label for="switch" class="toggle"> </label>
+                        </div>
+                        <label class="content__period">Yearly Billing</label>
+                        <span class="badge">25% discount</span>
+                    </div>
+                </div>
+
+                <div class="card__content">
+                    <div class="row row--space-between">
+                        <ul class="content__list">
+                            <li>Unlimited websites</li>
+                            <li>100% data ownership</li>
+                            <li>Email reports</li>
+                        </ul>
+
+                        <button class="content__button">Start my trial</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>
+

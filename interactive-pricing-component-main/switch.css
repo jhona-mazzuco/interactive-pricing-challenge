@@ -1,0 +1,32 @@
+.switch .toggle {
+    position: relative;
+    display: inline-block;
+    width: 43px;
+    height: 22px;
+    background-color: #cfd8ef;
+    border-radius: 30px;
+}
+
+.switch .toggle:after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    top: 4px;
+    left: 4px;
+    transition: all 0.5s;
+}
+
+.switch .checkbox:checked + .toggle::after {
+    left: 25px;
+}
+
+.switch .checkbox:checked + .toggle {
+    background-color: #77ecda;
+}
+
+.switch .checkbox {
+    display: none;
+}

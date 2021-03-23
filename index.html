@@ -41,38 +41,15 @@
             <div class="card">
                 <div class="card__content">
                     <div class="content__traffic">
-                        <div class="row row--space-between">
-                            <label class="traffic__view">
-                                <span id="view"></span>K PAGEVIEWS
-                            </label>
-                            <span class="traffic__price">
-                                <b class="price__value">$<span id="price">16.00</span></b>/ month
-                            </span>
-                        </div>
+                        <label class="traffic__view">
+                            <span id="view"></span> PAGEVIEWS
+                        </label>
+                        <span class="traffic__price">
+                            <b class="price__value">$<span id="price">16.00</span></b>/ month
+                        </span>
 
-                        <div class="row row--range-full-width">
-                            <input class="slider" type="range" id="priceRange" min="1" value="10" max="20"/>
-                            <script>
-                                const slider = document.getElementById('priceRange');
-                                const price = document.getElementById('price');
-                                const view = document.getElementById('view');
-
-                                function putValue(value) {
-                                    const slideClass = 'slider-container-';
-                                    for (let i = 1; i <= 20; i++) {
-                                        slider.classList.remove(slideClass + i)
-                                    }
-
-                                    slider.classList.add(slideClass + value)
-                                    view.innerHTML = `${value * 10}`;
-                                    price.innerHTML = `${parseFloat(value * 1.6).toFixed(2)}`;
-                                }
-
-                                putValue(Number.parseInt(slider.value));
-                                slider.oninput = function () {
-                                    putValue(Number.parseInt(this.value));
-                                }
-                            </script>
+                        <div class="traffic__slider">
+                            <input class="slider" type="range" id="priceRange" min="0" value="2" max="4"/>
                         </div>
                     </div>
 
@@ -83,19 +60,19 @@
                             <label for="switch" class="toggle"> </label>
                         </div>
                         <label class="content__period">Yearly Billing</label>
-                        <span class="badge">25% discount</span>
+                        <span class="badge">25%</span>
                     </div>
                 </div>
 
                 <div class="card__content">
-                    <div class="row row--space-between">
-                        <ul class="content__list">
+                    <div class="content__detail">
+                        <ul class="detail__list">
                             <li>Unlimited websites</li>
                             <li>100% data ownership</li>
                             <li>Email reports</li>
                         </ul>
 
-                        <button class="content__button">Start my trial</button>
+                        <button class="detail__button">Start my trial</button>
                     </div>
                 </div>
             </div>
@@ -103,5 +80,39 @@
     </div>
 </main>
 </body>
+<script>
+  const data = [
+    { view: '10K', price: 8 },
+    { view: '50K', price: 12 },
+    { view: '100K', price: 16 },
+    { view: '500K', price: 24 },
+    { view: '1M', price: 36 }
+  ]
+  const slider = document.getElementById('priceRange');
+  const price = document.getElementById('price');
+  const view = document.getElementById('view');
+  const checkbox = document.getElementById('switch');
+
+  function putValue(value) {
+    const slideClass = 'slider-container-';
+    for (let i = 1; i <= 5; i++) {
+      slider.classList.remove(slideClass + (i - 1))
+    }
+
+    slider.classList.add(slideClass + value)
+    view.innerHTML = `${data[value].view}`;
+    price.innerHTML = `${parseFloat(checkbox.checked ? data[value].price - (25 / 100) : data[value].price).toFixed(2)}`;
+  }
+
+  putValue(Number.parseInt(slider.value));
+
+  slider.oninput = function () {
+    putValue(Number.parseInt(this.value));
+  }
+
+  checkbox.oninput = function () {
+    putValue(Number.parseInt(slider.value));
+  }
+</script>
 </html>
 

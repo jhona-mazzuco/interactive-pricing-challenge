@@ -73,7 +73,11 @@
 }
 
 .content__traffic {
-    margin-bottom: 45px;
+    display: grid;
+    align-items: center;
+    grid-gap: 40px;
+    grid-template-areas: "view price"
+                         "slider slider";
 }
 
 .content__traffic div {
@@ -81,6 +85,8 @@
 }
 
 .content__traffic .traffic__view {
+    grid-area: view;
+    justify-self: start;
     color: #848ead;
     font-size: 14px;
     font-weight: bolder;
@@ -88,11 +94,17 @@
 }
 
 .content__traffic .traffic__price {
+    grid-area: price;
+    justify-self: end;
     display: flex;
     flex-direction: row;
     align-items: center;
     color: #848ead;
     font-size: 16px;
+}
+
+.content__traffic .traffic__slider {
+    grid-area: slider;
 }
 
 .content__traffic .traffic__price b {
@@ -125,6 +137,10 @@
     margin-right: 25px;
 }
 
+.badge::after {
+    content: " discount";
+}
+
 .content__period {
     color: #848ead;
     font-weight: 500;
@@ -132,7 +148,14 @@
     margin: 0 15px;
 }
 
-.content__list {
+.content__detail {
+    display: grid;
+    align-items: center;
+    grid-template-areas: "advantages button";
+}
+
+.detail__list {
+    grid-area: advantages;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -140,11 +163,11 @@
     color: #848ead;
 }
 
-.content__list li {
+.detail__list li {
     margin-bottom: 15px;
 }
 
-.content__list li::before {
+.detail__list li::before {
     content: "xxx";
     background-repeat: no-repeat;
     background-image: url("images/icon-check.svg");
@@ -153,8 +176,11 @@
     vertical-align: sub;
 }
 
-.content__button {
-    padding: 11px 39.5px;
+.detail__button {
+    grid-area: button;
+    justify-self: end;
+    width: 180px;
+    height: 45px;
     border-radius: 25px;
     background-color: #293356;
     color: #becdff;
@@ -163,4 +189,71 @@
     letter-spacing: 1px;
     outline: none;
     cursor: pointer;
+}
+
+@media (max-width: 560px) {
+    .wrapper .wrapper__content {
+        padding: 20% 22% 15%;
+    }
+
+    .wrapper__content .header__background {
+        width: 164px;
+    }
+
+    .content__traffic {
+        grid-template-areas: "view"
+                             "slider"
+                             "price";
+    }
+
+    .content__traffic .traffic__view {
+        justify-self: center;
+    }
+
+    .content__traffic .traffic__price {
+        justify-self: center;
+        margin-bottom: 35px;
+        font-size: 20px;
+    }
+
+    .content__traffic div {
+        margin-bottom: 0;
+    }
+
+    .wrapper__content .header__title {
+        font-size: 22px;
+        margin-left: -25%;
+        white-space: nowrap;
+    }
+
+    .wrapper__content .content__header {
+        margin-bottom: 85px;
+    }
+
+    .badge::after {
+        display: none;
+    }
+
+    .badge::before {
+        content: "-";
+    }
+
+    .content__period {
+        white-space: nowrap;
+    }
+
+    .card__content {
+        flex-direction: column;
+    }
+
+    .content__detail {
+        grid-template-areas: "advantages"
+                             "button";
+        justify-content: center;
+        grid-gap: 15px;
+    }
+
+    .detail__list li {
+        text-align: center;
+    }
 }
